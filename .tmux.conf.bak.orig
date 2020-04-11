@@ -1,0 +1,35 @@
+#search mode vi(default is emacs)
+set-window-option -g mode-keys vi
+
+#join windows
+bind-key j command-prompt -p "join pane from:"  "join pane -s '%%'"
+
+#set history
+set -g history-limit 10000
+
+# set bottom right panel strip
+set -g status-right '#{prefix_highlight} | #{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %d-%h-%Y %H:%M '
+
+#colorise
+set -g default-terminal "xterm-256color"
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+#logging plugin that ippsec uses
+set -g @plugin 'tmux-plugins/tmux-logging'
+
+# Tmux CPU and GPU status
+set -g @plugin 'tmux-plugins/tmux-cpu'
+
+# Plugin that highlights when you press tmux prefix key.
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '/Users/Fahad/.tmux/plugins/tpm/tpm'
